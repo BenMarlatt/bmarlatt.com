@@ -1,14 +1,36 @@
-import React from "react";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
-const UnderConstructionPage = () => {
+export default function UnderConstructionPage() {
   return (
-    <div className="container mx-auto flex h-screen items-center justify-center bg-gray-900 text-white">
-      <div className="text-center">
-        <h1 className="mb-4 text-3xl font-bold">Under Construction</h1>
-        <p>This page is under construction.</p>
-      </div>
-    </div>
+    <Container maxWidth="sm">
+      <Box
+        sx={{
+          my: 4,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Typography variant="h4" component="h1" sx={{ mb: 2 }} align="center">
+          bmarlatt.com
+        </Typography>
+        <Typography
+          variant="body1"
+          component="h2"
+          sx={{ mb: 2 }}
+          align="center"
+        >
+          Under Construction
+        </Typography>
+      </Box>
+    </Container>
   );
-};
+}
 
-export default UnderConstructionPage;
+// export default UnderConstructionPage;
