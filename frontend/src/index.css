@@ -1,4 +1,31 @@
 /* src/index.css */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+html, body, #root{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+
+h1, p, div{
+    color: #ccc;
+    --main-bg-color: #282c34;
+    --secondary-bg-color: #282c34c8;
+}
+
+.zoom {
+    padding: 50px;
+    background-color: green;
+    transition: transform .2s;
+    /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+  .zoom:hover {
+      transform: scale(1.5);
+      /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }

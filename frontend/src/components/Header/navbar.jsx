@@ -8,9 +8,9 @@ const MenuBar = () => {
 const NavBarLinks = () => {
   return (
     <>
-      <NavLink to="/">About</NavLink>
-      <NavLink to="/">Projects</NavLink>
-      <NavLink to="/">Updates</NavLink>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="/projects">Projects</NavLink>
+      <NavLink to="/updates">Updates</NavLink>
     </>
   );
 };
@@ -24,7 +24,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="w-1/3 flex justify-end">
+      <div className="flex w-1/3 justify-end">
         <div className="hidden w-full justify-between md:flex">
           <NavBarLinks />
         </div>
