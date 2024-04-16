@@ -5,16 +5,15 @@ import styled from "styled-components"
 const maxWidth = 768
 
 const PostContainer = styled.div`
-  display: flex;
+	display: flex;
 
-  width: 50%;
-  height: 350px;
-  word-break: break-word;
+	width: 50%;
+	height: 350px;
+	word-break: break-word;
 
-  @media (max-width: ${maxWidth}px) {
-    width: 100%;
-  }
-  .zoom
+	@media (max-width: ${maxWidth}px) {
+		width: 100%;
+	}
 `
 
 const PostBackground = styled.div`
@@ -27,10 +26,10 @@ const PostBackground = styled.div`
 	text-align: center;
 	font-family: "Arial", sans-serif;
 	flex-direction: column;
-	background-image: url("https://source.unsplash.com/random");
 	background-size: cover;
-	background-position: top right; // Position the background image in the center of the div
+	background-position: center;
 	background-repeat: no-repeat;
+	border: 1px solid #ccc;
 `
 
 const PostBlur = styled.div`
@@ -45,7 +44,7 @@ const PostBlur = styled.div`
 		rgba(0, 0, 0, 0) 40%,
 		var(--secondary-bg-color) 45%
 	);
-	background-color: var(--secondary-bg-color);
+	background-color: var(--transparent-bg-color);
 	transition: 0.5s ease;
 	&:hover {
 		box-shadow: inset 0 0 0 2000px rgba(64, 64, 64, 0.35);
@@ -78,14 +77,19 @@ const PostBody = styled.p`
 	font-size: 16px;
 `
 
-const PostComponent = ({ title, content }) => {
+const PostComponent = ({ post }) => {
+	const { title, description, id, image } = post
 	if (!title) {
 		return <PostContainer />
 	}
 	return (
 		<PostContainer>
-			<PostBackground>
-				<Link style={{ width: "100%", height: "100%" }} to="/">
+			<PostBackground
+				style={{
+					backgroundImage: `url(${image})`
+				}}
+			>
+				<Link style={{ width: "100%", height: "100%" }} to={`/projects/${id}`}>
 					<PostBlur>
 						<PostContent>
 							<div>
@@ -93,7 +97,7 @@ const PostComponent = ({ title, content }) => {
 							</div>
 							<div>
 								<PostTitle>{title}</PostTitle>
-								<PostBody>{content}</PostBody>
+								<PostBody>{description}</PostBody>
 							</div>
 						</PostContent>
 					</PostBlur>
