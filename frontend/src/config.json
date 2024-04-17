@@ -1,0 +1,12 @@
+{
+	"title": "Change 'config.json'",
+	"about": {
+		"name": "John Doe",
+		"bio": "John Doe is a software engineer with a passion for developing innovative solutions to complex problems. He has experience in a variety of technologies and is always looking to learn more. In his free time, John enjoys hiking, reading, and playing guitar.",
+		"image": "https://directemployers.org/wp-content/uploads/2018/08/avatar-JohnDoe.jpg",
+		"social": {
+			"github": "https://github.com/benmarlatt",
+			"linkedin": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+		}
+	}
+}

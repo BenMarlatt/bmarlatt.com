@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import config from "../../config.json"
 
 const maxWidth = 768
 
@@ -115,7 +116,7 @@ const Header = () => {
 				<HeaderNavBar>
 					<HeaderLink to="/updates">Updates</HeaderLink>
 					<HeaderLink to="/projects">Projects</HeaderLink>
-					<HeaderTitle>Benjamin Marlatt</HeaderTitle>
+					<HeaderTitle>{config.title}</HeaderTitle>
 					<HeaderLink to="/about">About</HeaderLink>
 					<HeaderLink to="/contact">Updates</HeaderLink>
 				</HeaderNavBar>
