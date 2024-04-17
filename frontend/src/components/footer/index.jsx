@@ -5,18 +5,18 @@ import config from "../../config.json"
 
 const maxWidth = 768
 
-const FooterContainer = styled.div`
+const HeaderContainer = styled.div`
 	z-index: 2;
 	display: flex;
 	background-color: var(--secondary-bg-color);
 	position: fixed;
-	top: 0;
+	bottom: 0;
 	height: 50px;
 	width: 100%;
 	justify-content: center;
 	align-items: center;
 `
-const FooterNavBar = styled.div`
+const HeaderNavBar = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,10 +27,10 @@ const FooterNavBar = styled.div`
 	}
 `
 
-const FooterTitle = styled.h1`
+const HeaderTitle = styled.h1`
 	margin: 20px;
 `
-const FooterLink = styled(Link)`
+const HeaderLink = styled(Link)`
 	display: flex;
 	justify-content: center;
 	text-decoration: none;
@@ -43,7 +43,7 @@ const FooterLink = styled(Link)`
 	}
 `
 
-const FooterMenuContainer = styled.div`
+const HeaderMenuContainer = styled.div`
 	display: none;
 	@media (max-width: ${maxWidth}px) {
 		display: flex;
@@ -53,7 +53,7 @@ const FooterMenuContainer = styled.div`
 	}
 `
 
-const FooterMenuButton = styled.button`
+const HeaderMenuButton = styled.button`
 	display: none;
 	@media (max-width: ${maxWidth}px) {
 		display: flex;
@@ -62,7 +62,7 @@ const FooterMenuButton = styled.button`
 	}
 `
 
-const FooterMenuDropdownContainer = styled.div`
+const HeaderMenuDropdownContainer = styled.div`
 	z-index: 1;
 	position: absolute;
 	top: 50px;
@@ -112,26 +112,26 @@ const Footer = () => {
 				width: "100%"
 			}}
 		>
-			<FooterContainer>
-				<FooterNavBar>
-					<FooterLink to="/updates">Updates</FooterLink>
-					<FooterLink to="/projects">Projects</FooterLink>
-					<FooterTitle>{config.title}</FooterTitle>
-					<FooterLink to="/about">About</FooterLink>
-					<FooterLink to="/contact">Updates</FooterLink>
-				</FooterNavBar>
-				<FooterMenuContainer>
-					<FooterMenuButton onClick={toggleMenu}>Menu</FooterMenuButton>
-				</FooterMenuContainer>
-			</FooterContainer>
+			{/* <HeaderContainer>
+				<HeaderNavBar>
+					<HeaderLink to="/updates">Updates</HeaderLink>
+					<HeaderLink to="/projects">Projects</HeaderLink>
+					<HeaderTitle>{config.title}</HeaderTitle>
+					<HeaderLink to="/about">About</HeaderLink>
+					<HeaderLink to="/contact">Updates</HeaderLink>
+				</HeaderNavBar>
+				<HeaderMenuContainer>
+					<HeaderMenuButton onClick={toggleMenu}>Menu</HeaderMenuButton>
+				</HeaderMenuContainer>
+			</HeaderContainer>
 			{isOpen && (
-				<FooterMenuDropdownContainer>
+				<HeaderMenuDropdownContainer>
 					<MenuLink to="/updates">Updates</MenuLink>
 					<MenuLink to="/projects">Projects</MenuLink>
 					<MenuLink to="/about">About</MenuLink>
 					<MenuLink to="/contact">Updates</MenuLink>
-				</FooterMenuDropdownContainer>
-			)}
+				</HeaderMenuDropdownContainer>
+			)} */}
 		</div>
 	)
 }

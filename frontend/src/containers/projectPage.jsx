@@ -8,7 +8,7 @@ const ProjectImage = styled.img`
 	width: 100%;
 	margin: 10px;
 	overflow-x: hidden;
-	max-height: 800px;
+	max-height: 600px;
 	object-fit: contain;
 `
 const ProjectTextArea = styled.p`

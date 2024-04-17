@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
@@ -75,10 +75,54 @@ const PostTitle = styled.h1`
 
 const PostBody = styled.p`
 	font-size: 16px;
+	overflow: hidden;
+	max-height: 24rem;
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	display: block;
+	display: -webkit-box;
+	-webkit-line-clamp: 12;
+	-webkit-box-orient: vertical;
 `
+
+const useClampLines = (text, lines) => {
+	const [clampedText, setClampedText] = useState("")
+
+	useEffect(() => {
+		const words = text.split(" ")
+		let clamped = ""
+
+		const p = document.createElement("p")
+		p.innerHTML = text
+		p.style.display = "none"
+		p.style.position = "absolute"
+		document.body.appendChild(p)
+
+		for (let i = 0; i < words.length; i++) {
+			p.innerHTML = clamped + words[i] + "..."
+			if (
+				p.getBoundingClientRect().height /
+					parseInt(window.getComputedStyle(p).lineHeight) >
+				lines
+			) {
+				break
+			} else {
+				clamped += words[i] + " "
+			}
+		}
+
+		document.body.removeChild(p)
+
+		setClampedText(clamped.trim() + "...")
+	}, [text, lines])
+
+	return clampedText
+}
 
 const PostComponent = ({ post }) => {
 	const { title, description, id, image } = post
+	const clampedDescription = useClampLines(description, 3) // Replace 3 with the number of lines you want
+
 	if (!title) {
 		return <PostContainer />
 	}

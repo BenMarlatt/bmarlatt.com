@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+import styled from "styled-components"
 import "./index.css"
 
 import {
@@ -12,12 +13,14 @@ import {
 } from "./containers"
 
 import Header from "./components/header"
+import Footer from "./components/footer"
 
 const Layout = () => {
 	return (
 		<>
 			<Header />
 			<Outlet />
+			{/* <Footer /> */}
 		</>
 	)
 }
