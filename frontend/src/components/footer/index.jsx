@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import config from "../../config.json"
 
 const maxWidth = import.meta.env.VITE_MAX_WIDTH
 
