@@ -1,4 +1,4 @@
-module backend
+module github.com/benmarlatt/bmarlatt.com/backend
 
 go 1.22
 
