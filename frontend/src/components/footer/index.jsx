@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import config from "../../config.json"
 
-const maxWidth = 768
+const maxWidth = import.meta.env.VITE_MAX_WIDTH
 
 const HeaderContainer = styled.div`
 	z-index: 2;

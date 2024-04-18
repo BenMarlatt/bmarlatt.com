@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-const maxWidth = 768
+const maxWidth = import.meta.env.VITE_MAX_WIDTH
 
 const PostContainer = styled.div`
 	display: flex;

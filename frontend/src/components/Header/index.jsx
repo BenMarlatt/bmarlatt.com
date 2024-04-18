@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import config from "../../config.json"
 
-const maxWidth = 768
+const maxWidth = import.meta.env.VITE_MAX_WIDTH
+const title = import.meta.env.VITE_APP_TITLE
 
 const FooterContainer = styled.div`
 	z-index: 2;
@@ -116,7 +116,7 @@ const Footer = () => {
 				<FooterNavBar>
 					<FooterLink to="/updates">Updates</FooterLink>
 					<FooterLink to="/projects">Projects</FooterLink>
-					<FooterTitle>{config.title}</FooterTitle>
+					<FooterTitle>{title}</FooterTitle>
 					<FooterLink to="/about">About</FooterLink>
 					<FooterLink to="/contact">Updates</FooterLink>
 				</FooterNavBar>

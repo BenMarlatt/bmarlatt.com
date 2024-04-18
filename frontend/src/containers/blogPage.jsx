@@ -5,7 +5,7 @@ import { PageContainer } from "../components/pageContainer"
 
 import posts from "../testdata.json"
 
-const maxWidth = 768
+const maxWidth = import.meta.env.VITE_MAX_WIDTH
 
 const PostRowContainer = styled.div`
 	display: flex;
