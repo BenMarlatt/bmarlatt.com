@@ -1,6 +1,6 @@
 module github.com/benmarlatt/bmarlatt.com/backend
 
-go 1.22
+go 1.17
 
 require github.com/gin-gonic/gin v1.9.1
 
