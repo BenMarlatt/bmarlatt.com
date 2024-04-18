@@ -1,5 +1,4 @@
 import React from "react"
-import data from "../testdata.json"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import { PageContainer } from "../components/pageContainer"
@@ -26,14 +25,42 @@ const ProjectContent = styled.div`
 	width: 75%;
 `
 
+const fetchProject = async (id) => {
+	try {
+		const response = await fetch(`/api/projects/${id}`)
+		console.log(response)
+		const data = await response.json()
+		console.log(data)
+		return data
+	} catch (error) {
+		console.error("Error fetching posts:", error)
+		return []
+	}
+}
+
 const ProjectPage = () => {
 	const { id } = useParams()
-	const project = data.find((project) => project.id == id)
+	const [project, setProject] = React.useState()
+	const [loading, setLoading] = React.useState(true)
 
-	const { title, description, image, content } = project
-	if (project === undefined) {
+	React.useEffect(() => {
+		setLoading(true)
+		const getProject = async () => {
+			const fetchedPosts = await fetchProject(id)
+			console.log(fetchedPosts)
+			setProject(fetchedPosts)
+			setLoading(false)
+		}
+
+		getProject()
+	}, [])
+
+	if (loading) {
+		return <h1>Loading...</h1>
+	} else if (project === undefined) {
 		return <h1>404: Project not found</h1>
 	} else {
+		const { title, description, image, content } = project
 		return (
 			<PageContainer>
 				<ProjectContent>

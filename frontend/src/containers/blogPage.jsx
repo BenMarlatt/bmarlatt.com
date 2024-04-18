@@ -3,8 +3,6 @@ import styled from "styled-components"
 import PostComponent from "../components/postComponent"
 import { PageContainer } from "../components/pageContainer"
 
-import posts from "../testdata.json"
-
 const maxWidth = import.meta.env.VITE_MAX_WIDTH
 
 const PostRowContainer = styled.div`
@@ -15,8 +13,31 @@ const PostRowContainer = styled.div`
 		transition: all 0.5s;
 	}
 `
+const fetchPosts = async () => {
+	try {
+		const response = await fetch("/api/projects")
+		console.log(response)
+		const data = await response.json()
+		console.log(data)
+		return data
+	} catch (error) {
+		console.error("Error fetching posts:", error)
+		return []
+	}
+}
 
 const BlogPage = () => {
+	const [posts, setPosts] = React.useState([])
+
+	React.useEffect(() => {
+		const getPosts = async () => {
+			const fetchedPosts = await fetchPosts()
+			setPosts(fetchedPosts)
+		}
+
+		getPosts()
+	}, [])
+
 	return (
 		<PageContainer>
 			{posts.map((post, index) => {
