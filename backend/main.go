@@ -40,7 +40,7 @@ func main() {
 	router.GET("/projects", getProjects)
 	router.GET("/projects/:id", getProjectByID)
 
-	listenIP := os.Getenv("GO_LISTEN_IP")
+	listenIP := os.Getenv("GO_LISTEN_HOST")
 	listenPort := os.Getenv("GO_LISTEN_PORT")
 
 	router.Run(listenIP + ":" + listenPort)
