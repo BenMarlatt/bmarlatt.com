@@ -1,17 +1,13 @@
 package main
 
 import (
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
-
-type album struct {
-	ID     string  `json:"id"`
-	Title  string  `json:"title"`
-	Artist string  `json:"artist"`
-	Price  float64 `json:"price"`
-}
 
 type Post struct {
 	Type string `json:"type"`
@@ -34,11 +30,21 @@ var projects = []Project{
 }
 
 func main() {
+
+	err := godotenv.Load(".env.dev")
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
 	router := gin.Default()
 	router.GET("/projects", getProjects)
 	router.GET("/projects/:id", getProjectByID)
 
-	router.Run("localhost:4000")
+	listenIP := os.Getenv("GO_LISTEN_IP")
+	listenPort := os.Getenv("GO_LISTEN_PORT")
+
+	router.Run(listenIP + ":" + listenPort)
+
 }
 
 func getProjects(c *gin.Context) {
